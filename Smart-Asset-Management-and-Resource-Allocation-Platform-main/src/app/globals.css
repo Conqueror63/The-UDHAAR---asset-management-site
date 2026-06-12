@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05060b;
+  --foreground: #eef2f6;
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@theme {
+  /* Redefine Slate to be an Obsidian Carbon palette */
+  --color-slate-50: #f8fafc;
+  --color-slate-100: #f1f5f9;
+  --color-slate-200: #e2e8f0;
+  --color-slate-300: #cbd5e1;
+  --color-slate-400: #94a3b8;
+  --color-slate-500: #64748b;
+  --color-slate-600: #475569;
+  --color-slate-700: #334155;
+  --color-slate-800: #1e293b;
+  --color-slate-900: #0f172a;
+  --color-slate-950: #020817;
+
+  /* Redefine Slate to a deep premium obsidian blue-grey in dark/default context */
+  --color-slate-950: #040508;
+  --color-slate-900: #0b0c10;
+  --color-slate-850: #12141c;
+  --color-slate-800: #181b24;
+  --color-slate-700: #232735;
+  --color-slate-600: #3e445b;
+  --color-slate-500: #646d8a;
+  --color-slate-400: #939cb9;
+  --color-slate-300: #c2c9dc;
+  --color-slate-200: #e2e5ee;
+  --color-slate-100: #f1f2f6;
+
+  /* Redefine Violet to Electric Cyan / Neon Aurora Teal */
+  --color-violet-50: #ecfeff;
+  --color-violet-100: #cffafe;
+  --color-violet-200: #a5f3fc;
+  --color-violet-300: #67e8f9;
+  --color-violet-400: #22d3ee;
+  --color-violet-500: #06b6d4;
+  --color-violet-600: #0891b2;
+  --color-violet-700: #0e7490;
+  --color-violet-800: #155e75;
+  --color-violet-900: #164e63;
+  --color-violet-950: #083344;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, -apple-system, sans-serif;
+  overflow-x: hidden;
+}
+
+/* Glassmorphism panel base utility */
+.glass-panel {
+  background: rgba(11, 12, 16, 0.65);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.glass-panel-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.glass-panel-hover:hover {
+  background: rgba(11, 12, 16, 0.8);
+  border-color: rgba(6, 182, 212, 0.25);
+  box-shadow: 0 0 25px rgba(6, 182, 212, 0.1);
+  transform: translateY(-2px);
+}
+
+/* Neon glow border utility */
+.neon-glow {
+  box-shadow: 0 0 20px rgba(6, 182, 212, 0.15);
+}
+
+.neon-glow-border {
+  border-color: rgba(6, 182, 212, 0.3);
+}
+
+/* Custom scrollbar styling for WebKit (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #040508;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #181b24;
+  border-radius: 9999px;
+  border: 1px solid #040508;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #06b6d4;
+}
+
+/* Custom scrollbar styling for Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #181b24 #040508;
+}
+
+/* Utility class to hide scrollbar completely */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Animate Pulse Accent */
+@keyframes neonPulse {
+  0%, 100% {
+    opacity: 0.8;
+    box-shadow: 0 0 8px rgba(6, 182, 212, 0.2);
+  }
+  50% {
+    opacity: 1;
+    box-shadow: 0 0 16px rgba(6, 182, 212, 0.45);
+  }
+}
+
+.animate-neon-pulse {
+  animation: neonPulse 2s infinite ease-in-out;
+}
